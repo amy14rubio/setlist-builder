@@ -79,12 +79,14 @@ then on.
 
 **Background reminders even when the app is closed:** scheduled tasks
 only notify you while the app checks for them. To get notified even
-when it's not open, set up `scheduler_runner.py` to run on a recurring
-schedule via macOS's `launchd`. See the comments at the top of that
-file for exactly what it does. Both kinds of notification work fully
-from there, approving a task and logging back in to Google alike,
-without the app ever being open. This is an optional, one-time,
-slightly more advanced step.
+when it's not open, run `bash scripts/install_scheduler.sh` once. It
+registers `scheduler_runner.py` as a macOS `launchd` agent that checks
+every 15 minutes, working out every path from wherever you cloned the
+project. Both kinds of notification work fully from there, approving a
+task and logging back in to Google alike, without the app ever being
+open.
+
+To stop it again: `bash scripts/install_scheduler.sh --uninstall`.
 
 ## Running the test suite
 
@@ -107,8 +109,20 @@ pytest
   actionable, meant to run independently of the main app window.
   `scheduler_runner.py` also clears out task rows that already ran, so
   the database doesn't grow forever.
+- `scripts/`: one-time setup helpers (the double-clickable launcher,
+  the background scheduler agent).
 - `tests/`: the automated test suite.
 
 ## License
 
-_(Not yet decided, see the project's to-do list.)_
+MIT, see **[LICENSE](LICENSE)**. Use it, change it, build something
+else out of it.
+
+This was written for one specific setup, so it won't run for anyone
+else unmodified. But the parts that took the longest to get right, the
+fuzzy matching, driving Logic Pro without a paid automation tool, and
+the schedule/approve/notify pipeline, are each in their own file for a
+reason. If you've got your own recurring "match a list against several
+of my own libraries, then automate the boring part" problem, I hope
+these are useful as ideas rather than as something you have to adopt
+whole.

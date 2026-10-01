@@ -101,6 +101,28 @@ Privacy & Security**, under **Accessibility**, **Automation**, and
 **Notifications**. Approve each. Without these, Logic Pro automation
 and scheduled notifications won't work.
 
+## 6. Optional: notifications while the app is closed
+
+By default, a scheduled task is only noticed while the app is actually
+open. To be notified either way, register the background checker as a
+`launchd` agent:
+
+```
+bash scripts/install_scheduler.sh
+```
+
+That's the whole step. It figures out every path from wherever you
+cloned this, so there's nothing to edit, and it runs the check every
+15 minutes. Both notifications work from there without the app open:
+approving a due task, and logging back in when Google expires your
+login.
+
+To stop and remove it:
+
+```
+bash scripts/install_scheduler.sh --uninstall
+```
+
 ---
 
 See `README.md` for how to actually run the app day to day, and for

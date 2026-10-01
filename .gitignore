@@ -1,0 +1,47 @@
+# --- Secrets / personal data -----------------------------------------
+# This app never hardcodes credentials -- OAuth client secret JSON
+# files, tokens, and every configured path (audio/Logic library,
+# Drive folder ID, etc.) all live in
+# ~/Library/Application Support/SetlistBuilder/, entirely outside this
+# repo (see app/models/settings.py, app/services/database_service.py).
+# These rules are a safety net in case any of that is ever copied or
+# symlinked into the project folder by mistake -- never rename these
+# patterns away just because a specific file "looks fine right now".
+*.env
+.env.*
+client_secret*.json
+*_token.json
+credentials*.json
+*.pem
+*.key
+
+# --- Runtime data written INTO this folder -----------------------------
+# The app's own log files -- real operational data (Drive folder IDs,
+# real song titles, local file paths with your name in them). Rotated
+# copies (.log.1, .log.2, ...) included.
+logs/
+*.log
+*.log.*
+
+# A stray local SQLite file, if one is ever created here by accident
+# instead of in Application Support.
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Python ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# --- Virtual environment -------------------------------------------------
+venv/
+.venv/
+
+# --- macOS ---------------------------------------------------------------
+.DS_Store
+
+# --- Editors / IDEs --------------------------------------------------------
+.vscode/
+.idea/

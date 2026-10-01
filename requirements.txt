@@ -1,0 +1,15 @@
+# Setlist Builder, Python dependencies
+#
+# Install with:  pip install -r requirements.txt
+# (run this AFTER activating your venv: source venv/bin/activate)
+
+PySide6==6.7.2      # Qt bindings for the desktop UI
+rapidfuzz==3.9.6     # Fast fuzzy string matching (song title matching)
+pillow==10.4.0       # Image handling (loading/previewing playlist screenshots)
+pytesseract==0.3.13  # Python wrapper around the Tesseract OCR command-line tool
+requests==2.32.3     # Fetching the configured video lookup site's song list
+beautifulsoup4==4.12.3  # Parsing the video lookup site's HTML
+google-auth-oauthlib==1.2.1   # One-time login flow for YouTube API access
+google-api-python-client==2.140.0  # Talking to the YouTube Data API (and Google Drive)
+pypdf==4.3.1         # Merging downloaded chart PDFs into one setlist packet
+watchdog==6.0.0      # Dev tool: auto-restarts the app on file save (see dev_watch.sh)

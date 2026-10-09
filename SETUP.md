@@ -24,7 +24,7 @@ brew install python@3.12 tesseract tesseract-lang terminal-notifier
 ```
 git clone https://github.com/YOUR-USERNAME/setlist-builder.git
 cd setlist-builder
-python3 -m venv venv
+python3.12 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -33,6 +33,13 @@ pip install -r requirements.txt
 "Download ZIP" instead, unzip it, and `cd` into that folder.) You'll
 need to re-run `source venv/bin/activate` each time you open a new
 Terminal window to work with this project.
+
+**Use Python 3.12 for the venv.** The pinned Qt version
+(PySide6 6.7.2) has no build for newer Pythons (3.13, 3.14), so
+`pip install` would fail with "No matching distribution found". Check
+what a bare `python3` gives you with `python3 --version`; if it's not
+3.12, install it (`brew install python@3.12`) and use
+`python3.12 -m venv venv` as above.
 
 ## 3. Set up Google access (Drive + YouTube)
 

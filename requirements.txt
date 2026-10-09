@@ -3,7 +3,7 @@
 # Install with:  pip install -r requirements.txt
 # (run this AFTER activating your venv: source venv/bin/activate)
 
-PySide6==6.7.2      # Qt bindings for the desktop UI
+PySide6-Essentials==6.7.2      # Qt bindings for the desktop UI (Core/Gui/Widgets only; skips the ~700 MB Addons like WebEngine)
 rapidfuzz==3.9.6     # Fast fuzzy string matching (song title matching)
 pillow==10.4.0       # Image handling (loading/previewing playlist screenshots)
 pytesseract==0.3.13  # Python wrapper around the Tesseract OCR command-line tool
